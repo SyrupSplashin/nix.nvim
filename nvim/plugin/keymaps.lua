@@ -128,8 +128,11 @@ keymap.set('c', '%%', function()
   end
 end, { expr = true, desc = "expand to current buffer's directory" })
 
-keymap.set('n', '<space>tn', vim.cmd.tabnew, { desc = '[t]ab: [n]ew' })
-keymap.set('n', '<space>tq', vim.cmd.tabclose, { desc = '[t]ab: [q]uit/close' })
+keymap.set('n', '<space>bn', vim.cmd.enew, { desc = '[b]uffer: [n]ew' })
+keymap.set('n', '<space>bq', vim.cmd.bd, { desc = '[b]uffer: [q]uit/close' })
+keymap.set('n', '<space>bf', vim.cmd.bnext, { desc = '[b]uffer: [f]orward' })
+keymap.set('n', '<space>bb', vim.cmd.bprevious, { desc = '[b]uffer: [b]ackwards' })
+keymap.set('n', '<space>bs', ":BufferLinePick<CR>", {desc = '[b]uffer: [s]elect'})
 
 local severity = diagnostic.severity
 
@@ -183,8 +186,8 @@ keymap.set('n', '<leader>S', toggle_spell_check, { noremap = true, silent = true
 
 -- keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move [d]own half-page and center' })
 -- keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move [u]p half-page and center' })
-keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'move DOWN [f]ull-page and center' })
-keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
+-- keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'move DOWN [f]ull-page and center' })
+-- keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
 
 --- Disabled keymaps [enable at your own risk]
 
