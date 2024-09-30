@@ -26,6 +26,7 @@ opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
 opt.hlsearch = true
+opt.clipboard = "unnamed"
 
 opt.spell = true
 opt.spelllang = 'en'
@@ -94,7 +95,7 @@ vim.diagnostic.config {
 
 g.editorconfig = true
 
-vim.opt.colorcolumn = '100'
+-- vim.opt.colorcolumn = '100'
 
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')

@@ -41,6 +41,8 @@ require('lualine').setup {
   },
   options = {
     theme = 'auto',
+    section_separators = " ",
+    component_separators = " ",
   },
   -- Example top tabline configuration (this may clash with other plugins)
   -- tabline = {
