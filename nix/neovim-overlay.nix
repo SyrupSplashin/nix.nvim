@@ -88,6 +88,7 @@ with final.pkgs.lib; let
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
+    nixfmt-rfc-style
     nil
   ];
 in {
