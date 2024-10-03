@@ -83,6 +83,7 @@ with final.pkgs.lib; let
     # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
     bufferline-nvim
+    vim-tmux-navigator # intra-tmux navigation compatible with nvim
   ];
 
   extraPackages = with pkgs; [
