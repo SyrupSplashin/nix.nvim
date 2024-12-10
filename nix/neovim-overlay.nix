@@ -84,6 +84,7 @@ with final.pkgs.lib; let
     which-key-nvim
     bufferline-nvim
     vim-tmux-navigator # intra-tmux navigation compatible with nvim
+    qmk-nvim
   ];
 
   extraPackages = with pkgs; [
