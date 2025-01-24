@@ -5,7 +5,6 @@ vim.g.did_load_completion_plugin = true
 
 local cmp = require('cmp')
 local lspkind = require('lspkind')
-local luasnip = require('luasnip')
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
@@ -43,14 +42,8 @@ cmp.setup {
         nvim_lsp_document_symbol = '[LSP]',
         nvim_lua = '[API]',
         path = '[PATH]',
-        luasnip = '[SNIP]',
       },
     },
-  },
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-    end,
   },
   mapping = {
     ['<C-b>'] = cmp.mapping(function(_)
@@ -72,8 +65,6 @@ cmp.setup {
         cmp.select_next_item()
       -- expand_or_jumpable(): Jump outside the snippet region
       -- expand_or_locally_jumpable(): Only jump inside the snippet region
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
       elseif has_words_before() then
         cmp.complete()
       else
@@ -83,8 +74,6 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
       else
         fallback()
       end

@@ -30,10 +30,8 @@ with final.pkgs.lib; let
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
     catppuccin-nvim # Colorscheme
     nvim-treesitter.withAllGrammars
-    luasnip # snippets | https://github.com/l3mon4d3/luasnip/
     # nvim-cmp (autocompletion) and extensions
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
-    cmp_luasnip # snippets autocompletion extension for nvim-cmp | https://github.com/saadparwaiz1/cmp_luasnip/
     lspkind-nvim # vscode-like LSP pictograms | https://github.com/onsails/lspkind.nvim/
     cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
     cmp-nvim-lsp-signature-help # https://github.com/hrsh7th/cmp-nvim-lsp-signature-help/
@@ -63,10 +61,7 @@ with final.pkgs.lib; let
     # language support
     # ^ language support
     # navigation/editing enhancement plugins
-    vim-unimpaired # predefined ] and [ navigation keymaps | https://github.com/tpope/vim-unimpaired/
     eyeliner-nvim # Highlights unique characters for f/F and t/T motions | https://github.com/jinh0/eyeliner.nvim
-    nvim-surround # https://github.com/kylechui/nvim-surround/
-    nvim-treesitter-textobjects # https://github.com/nvim-treesitter/nvim-treesitter-textobjects/
     nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
     # ^ navigation/editing enhancement plugins
     # Useful utilities
@@ -78,13 +73,10 @@ with final.pkgs.lib; let
     nvim-web-devicons
     vim-repeat
     # ^ libraries that other plugins depend on
-    # bleeding-edge plugins from flake inputs
-    # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
-    # ^ bleeding-edge plugins from flake inputs
     which-key-nvim
     bufferline-nvim
     vim-tmux-navigator # intra-tmux navigation compatible with nvim
-    qmk-nvim
+    qmk-nvim # for formatting QMK keymap files
   ];
 
   extraPackages = with pkgs; [
@@ -105,19 +97,4 @@ in {
   nvim-luarc-json = final.mk-luarc-json {
     plugins = all-plugins;
   };
-
-  # You can add as many derivations as you like.
-  # Use `ignoreConfigRegexes` to filter out config
-  # files you would not like to include.
-  #
-  # For example:
-  #
-  # nvim-pkg-no-telescope = mkNeovim {
-  #   plugins = [];
-  #   ignoreConfigRegexes = [
-  #     "^plugin/telescope.lua"
-  #     "^ftplugin/.*.lua"
-  #   ];
-  #   inherit extraPackages;
-  # };
 }
